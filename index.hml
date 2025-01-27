@@ -1,0 +1,266 @@
+ 
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mnemonica Stopwatch</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: black;
+            color: white;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 2px;
+        }
+        .column {
+            padding: 10px;
+            width: 100px;
+        }
+        .column h3 {
+            margin: 0 0 10px 0;
+        }
+        button {
+            width: 60px;
+            height: 40px;
+            margin: 5px 0;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: white;
+            color: black;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: gray;
+        }
+    </style>
+    <script>
+        let lista_carte = [
+            "4♣", "2♥", "7♦", "3♣", "4♥", "6♦", "A♠", "5♥", "9♠", "2♠", "Q♥", "3♦", "Q♣",
+            "8♥", "6♠", "5♠", "9♥", "K♣", "2♦", "J♥", "3♠", "8♠", "6♥", "10♣", "5♦", "K♦",
+            "2♣", "3♥", "8♦", "5♣", "K♠", "J♦", "8♣", "10♠", "K♥", "J♣", "7♠", "10♥", "A♦",
+            "4♠", "7♥", "4♦", "A♣", "9♣", "J♠", "Q♦", "7♣", "Q♠", "10♦", "6♣", "A♥", "9♦"
+        ];
+
+        function genera(carta) {
+            let index = lista_carte.indexOf(carta) + 1;
+            if (index > 0) {
+                let transcodingTable = "ABCDEFGHIJ";
+                let indexStr = index.toString();//.padStart(2, 'A'); // Aggiunge 'A' se necessario
+                
+                let firstDigit = indexStr.length === 1 ? 'A' : transcodingTable[parseInt(indexStr[0])];
+                let secondDigit = transcodingTable[parseInt(indexStr[indexStr.length - 1])];
+                
+                let url = `https://stopwatch-three-ashen.vercel.app/?format=A${firstDigit}${secondDigit}`;
+                window.location.href = url;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Mnemonica Stopwatch</h1>
+    <div class="container">
+        <div class="column">
+            <h3>Clubs</h3>
+            <button onclick="genera('A♣')">A♣</button>
+            <button onclick="genera('2♣')">2♣</button>
+            <button onclick="genera('3♣')">3♣</button>
+            <button onclick="genera('4♣')">4♣</button>
+            <button onclick="genera('5♣')">5♣</button>
+            <button onclick="genera('6♣')">6♣</button>
+            <button onclick="genera('7♣')">7♣</button>
+            <button onclick="genera('8♣')">8♣</button>
+            <button onclick="genera('9♣')">9♣</button>
+            <button onclick="genera('10♣')">10♣</button>
+            <button onclick="genera('J♣')">J♣</button>
+            <button onclick="genera('Q♣')">Q♣</button>
+            <button onclick="genera('K♣')">K♣</button>
+        </div>
+        <div class="column">
+            <h3>Hearts</h3>
+            <button onclick="genera('A♥')">A♥</button>
+            <button onclick="genera('2♥')">2♥</button>
+            <button onclick="genera('3♥')">3♥</button>
+            <button onclick="genera('4♥')">4♥</button>
+            <button onclick="genera('5♥')">5♥</button>
+            <button onclick="genera('6♥')">6♥</button>
+            <button onclick="genera('7♥')">7♥</button>
+            <button onclick="genera('8♥')">8♥</button>
+            <button onclick="genera('9♥')">9♥</button>
+            <button onclick="genera('10♥')">10♥</button>
+            <button onclick="genera('J♥')">J♥</button>
+            <button onclick="genera('Q♥')">Q♥</button>
+            <button onclick="genera('K♥')">K♥</button>
+        </div>
+        <div class="column">
+            <h3>Spades</h3>
+            <button onclick="genera('A♠')">A♠</button>
+            <button onclick="genera('2♠')">2♠</button>
+            <button onclick="genera('3♠')">3♠</button>
+            <button onclick="genera('4♠')">4♠</button>
+            <button onclick="genera('5♠')">5♠</button>
+            <button onclick="genera('6♠')">6♠</button>
+            <button onclick="genera('7♠')">7♠</button>
+            <button onclick="genera('8♠')">8♠</button>
+            <button onclick="genera('9♠')">9♠</button>
+            <button onclick="genera('10♠')">10♠</button>
+            <button onclick="genera('J♠')">J♠</button>
+            <button onclick="genera('Q♠')">Q♠</button>
+            <button onclick="genera('K♠')">K♠</button>
+        </div>
+        <div class="column">
+            <h3>Diamonds</h3>
+            <button onclick="genera('A♦')">A♦</button>
+            <button onclick="genera('2♦')">2♦</button>
+            <button onclick="genera('3♦')">3♦</button>
+            <button onclick="genera('4♦')">4♦</button>
+            <button onclick="genera('5♦')">5♦</button>
+            <button onclick="genera('6♦')">6♦</button>
+            <button onclick="genera('7♦')">7♦</button>
+            <button onclick="genera('8♦')">8♦</button>
+            <button onclick="genera('9♦')">9♦</button>
+            <button onclick="genera('10♦')">10♦</button>
+            <button onclick="genera('J♦')">J♦</button>
+            <button onclick="genera('Q♦')">Q♦</button>
+            <button onclick="genera('K♦')">K♦</button>
+        </div>
+    </div>
+</body>
+</html><!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carte da gioco</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: black;
+            color: white;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .column {
+            padding: 10px;
+            width: 100px;
+        }
+        .column h3 {
+            margin: 0 0 10px 0;
+        }
+        button {
+            width: 80px;
+            height: 40px;
+            margin: 5px 0;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: white;
+            color: black;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: gray;
+        }
+    </style>
+    <script>
+        let lista_carte = [
+            "4♣", "2♥", "7♦", "3♣", "4♥", "6♦", "A♠", "5♥", "9♠", "2♠", "Q♥", "3♦", "Q♣",
+            "8♥", "6♠", "5♠", "9♥", "K♣", "2♦", "J♥", "3♠", "8♠", "6♥", "10♣", "5♦", "K♦",
+            "2♣", "3♥", "8♦", "5♣", "K♠", "J♦", "8♣", "10♠", "K♥", "J♣", "7♠", "10♥", "A♦",
+            "4♠", "7♥", "4♦", "A♣", "9♣", "J♠", "Q♦", "7♣", "Q♠", "10♦", "6♣", "A♥", "9♦"
+        ];
+
+        function genera(carta) {
+            let index = lista_carte.indexOf(carta) + 1;
+            if (index > 0) {
+                let transcodingTable = "ABCDEFGHI";
+                let indexStr = index.toString().padStart(2, 'A'); // Aggiunge 'A' se necessario
+                
+                let firstDigit = indexStr.length === 1 ? 'A' : transcodingTable[parseInt(indexStr[0])];
+                let secondDigit = transcodingTable[parseInt(indexStr[indexStr.length - 1])];
+                
+                let url = `https://stopwatch-three-ashen.vercel.app/?format=A${firstDigit}${secondDigit}`;
+                window.location.href = url;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Carte da gioco</h1>
+    <div class="container">
+        <div class="column">
+            <h3>Fiori</h3>
+            <button onclick="genera('A♣')">A♣</button>
+            <button onclick="genera('2♣')">2♣</button>
+            <button onclick="genera('3♣')">3♣</button>
+            <button onclick="genera('4♣')">4♣</button>
+            <button onclick="genera('5♣')">5♣</button>
+            <button onclick="genera('6♣')">6♣</button>
+            <button onclick="genera('7♣')">7♣</button>
+            <button onclick="genera('8♣')">8♣</button>
+            <button onclick="genera('9♣')">9♣</button>
+            <button onclick="genera('10♣')">10♣</button>
+            <button onclick="genera('J♣')">J♣</button>
+            <button onclick="genera('Q♣')">Q♣</button>
+            <button onclick="genera('K♣')">K♣</button>
+        </div>
+        <div class="column">
+            <h3>Cuori</h3>
+            <button onclick="genera('A♥')">A♥</button>
+            <button onclick="genera('2♥')">2♥</button>
+            <button onclick="genera('3♥')">3♥</button>
+            <button onclick="genera('4♥')">4♥</button>
+            <button onclick="genera('5♥')">5♥</button>
+            <button onclick="genera('6♥')">6♥</button>
+            <button onclick="genera('7♥')">7♥</button>
+            <button onclick="genera('8♥')">8♥</button>
+            <button onclick="genera('9♥')">9♥</button>
+            <button onclick="genera('10♥')">10♥</button>
+            <button onclick="genera('J♥')">J♥</button>
+            <button onclick="genera('Q♥')">Q♥</button>
+            <button onclick="genera('K♥')">K♥</button>
+        </div>
+        <div class="column">
+            <h3>Picche</h3>
+            <button onclick="genera('A♠')">A♠</button>
+            <button onclick="genera('2♠')">2♠</button>
+            <button onclick="genera('3♠')">3♠</button>
+            <button onclick="genera('4♠')">4♠</button>
+            <button onclick="genera('5♠')">5♠</button>
+            <button onclick="genera('6♠')">6♠</button>
+            <button onclick="genera('7♠')">7♠</button>
+            <button onclick="genera('8♠')">8♠</button>
+            <button onclick="genera('9♠')">9♠</button>
+            <button onclick="genera('10♠')">10♠</button>
+            <button onclick="genera('J♠')">J♠</button>
+            <button onclick="genera('Q♠')">Q♠</button>
+            <button onclick="genera('K♠')">K♠</button>
+        </div>
+        <div class="column">
+            <h3>Quadri</h3>
+            <button onclick="genera('A♦')">A♦</button>
+            <button onclick="genera('2♦')">2♦</button>
+            <button onclick="genera('3♦')">3♦</button>
+            <button onclick="genera('4♦')">4♦</button>
+            <button onclick="genera('5♦')">5♦</button>
+            <button onclick="genera('6♦')">6♦</button>
+            <button onclick="genera('7♦')">7♦</button>
+            <button onclick="genera('8♦')">8♦</button>
+            <button onclick="genera('9♦')">9♦</button>
+            <button onclick="genera('10♦')">10♦</button>
+            <button onclick="genera('J♦')">J♦</button>
+            <button onclick="genera('Q♦')">Q♦</button>
+            <button onclick="genera('K♦')">K♦</button>
+        </div>
+    </div>
+</body>
+</html>https://stopwatch-three-ashen.vercel.app/?format=ABChttps://stopwatch-three-ashen.vercel.app/?format=ABC
